@@ -1,0 +1,33 @@
+# Core dependencies
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+python-multipart==0.0.6
+pydantic==2.5.3
+pydantic-settings==2.1.0
+
+# Resume parsing
+PyMuPDF==1.23.8
+python-docx==1.1.0
+
+# Vector database and embeddings
+chromadb==0.4.22
+langchain==0.1.4
+langchain-community==0.0.16
+
+# HTTP client
+httpx==0.26.0
+aiohttp==3.9.1
+
+# Data processing
+numpy==1.26.3
+pandas==2.1.4
+
+# Web interface
+streamlit==1.30.0
+
+# Environment management
+python-dotenv==1.0.0
+
+# Utilities
+uuid==1.30
+typing-extensions==4.9.0

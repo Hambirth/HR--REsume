@@ -1,0 +1,98 @@
+PRIYA SHARMA
+Senior Software Engineer
+
+Email: priya.sharma@gmail.com
+Phone: +91 98765 43210
+Location: Bangalore, India
+LinkedIn: linkedin.com/in/priyasharma
+
+================================================================================
+PROFESSIONAL SUMMARY
+================================================================================
+Results-driven Senior Software Engineer with 6+ years of experience in designing 
+and developing scalable web applications. Expert in Python, React, and cloud 
+technologies. Proven track record of leading cross-functional teams and delivering 
+high-impact projects on time.
+
+================================================================================
+WORK EXPERIENCE
+================================================================================
+
+SENIOR SOFTWARE ENGINEER
+Infosys Limited, Bangalore
+January 2021 - Present (3+ years)
+
+• Led development of microservices architecture serving 2M+ daily active users
+• Designed and implemented RESTful APIs using Python FastAPI and PostgreSQL
+• Mentored team of 5 junior developers, conducted code reviews and technical training
+• Reduced application response time by 40% through performance optimization
+• Implemented CI/CD pipelines using Jenkins and Docker, reducing deployment time by 60%
+
+SOFTWARE ENGINEER
+Wipro Technologies, Hyderabad
+June 2018 - December 2020 (2.5 years)
+
+• Developed full-stack web applications using React.js and Node.js
+• Built machine learning models for customer churn prediction using Python and TensorFlow
+• Collaborated with product team to define technical requirements and specifications
+• Maintained 99.9% uptime for critical production systems
+
+JUNIOR SOFTWARE DEVELOPER
+TCS (Tata Consultancy Services), Chennai
+July 2016 - May 2018 (2 years)
+
+• Developed and maintained enterprise Java applications
+• Created automated testing frameworks reducing QA time by 30%
+• Participated in Agile sprints and daily standups
+
+================================================================================
+TECHNICAL SKILLS
+================================================================================
+
+Programming Languages: Python, JavaScript, TypeScript, Java, SQL
+Frontend: React.js, Angular, HTML5, CSS3, TailwindCSS
+Backend: FastAPI, Node.js, Express.js, Django, Spring Boot
+Databases: PostgreSQL, MongoDB, MySQL, Redis
+Cloud & DevOps: AWS, Docker, Kubernetes, Jenkins, Git, CI/CD
+Machine Learning: TensorFlow, PyTorch, Scikit-learn, Pandas, NumPy
+Tools: Jira, Confluence, VS Code, IntelliJ IDEA
+
+================================================================================
+EDUCATION
+================================================================================
+
+MASTER OF TECHNOLOGY (M.Tech) - Computer Science
+Indian Institute of Technology (IIT) Madras
+2014 - 2016 | CGPA: 8.9/10
+
+BACHELOR OF ENGINEERING (B.E) - Information Technology  
+Anna University, Chennai
+2010 - 2014 | CGPA: 8.5/10
+
+================================================================================
+CERTIFICATIONS
+================================================================================
+
+• AWS Certified Solutions Architect - Associate (2023)
+• Google Cloud Professional Data Engineer (2022)
+• MongoDB Certified Developer (2021)
+
+================================================================================
+PROJECTS
+================================================================================
+
+E-Commerce Platform Redesign
+• Architected and built scalable e-commerce platform handling 100K+ transactions/day
+• Technologies: React, FastAPI, PostgreSQL, Redis, AWS
+
+Real-time Analytics Dashboard
+• Developed real-time data visualization dashboard for business intelligence
+• Technologies: Python, Apache Kafka, Elasticsearch, Kibana
+
+================================================================================
+LANGUAGES
+================================================================================
+
+• English (Fluent)
+• Hindi (Native)
+• Tamil (Conversational)

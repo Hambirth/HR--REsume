@@ -1,0 +1,122 @@
+RAHUL VERMA
+Data Scientist
+
+Email: rahul.verma@outlook.com
+Phone: +91 87654 32109
+Location: Mumbai, India
+GitHub: github.com/rahulverma
+LinkedIn: linkedin.com/in/rahulverma
+
+================================================================================
+PROFESSIONAL SUMMARY
+================================================================================
+Passionate Data Scientist with 4 years of experience in machine learning, 
+statistical analysis, and predictive modeling. Skilled in transforming complex 
+data into actionable business insights. Strong background in NLP, computer vision, 
+and deep learning frameworks.
+
+================================================================================
+WORK EXPERIENCE
+================================================================================
+
+DATA SCIENTIST
+Amazon India, Mumbai
+March 2022 - Present (2+ years)
+
+• Developed recommendation engine improving customer engagement by 25%
+• Built NLP models for sentiment analysis processing 500K+ reviews daily
+• Created demand forecasting models reducing inventory costs by $2M annually
+• Collaborated with engineering teams to deploy ML models to production
+• Presented insights to stakeholders and C-level executives
+
+MACHINE LEARNING ENGINEER
+Flipkart, Bangalore
+August 2020 - February 2022 (1.5 years)
+
+• Implemented computer vision models for product categorization (95% accuracy)
+• Built fraud detection system reducing fraudulent transactions by 35%
+• Developed A/B testing framework for ML model evaluation
+• Optimized model inference time by 50% using TensorRT
+
+DATA ANALYST
+Accenture, Pune
+June 2019 - July 2020 (1 year)
+
+• Analyzed customer behavior data to identify growth opportunities
+• Created interactive dashboards using Tableau and Power BI
+• Automated reporting processes saving 20 hours/week
+• Performed statistical analysis and hypothesis testing
+
+================================================================================
+TECHNICAL SKILLS
+================================================================================
+
+Programming: Python, R, SQL, Scala
+Machine Learning: Scikit-learn, XGBoost, LightGBM, CatBoost
+Deep Learning: TensorFlow, PyTorch, Keras, Hugging Face Transformers
+NLP: NLTK, spaCy, BERT, GPT, Langchain
+Computer Vision: OpenCV, YOLO, ResNet, EfficientNet
+Big Data: Apache Spark, Hadoop, Hive, Airflow
+Cloud: AWS SageMaker, Google Cloud AI Platform, Azure ML
+Visualization: Tableau, Power BI, Matplotlib, Seaborn, Plotly
+Databases: PostgreSQL, MongoDB, Snowflake, BigQuery
+
+================================================================================
+EDUCATION
+================================================================================
+
+MASTER OF SCIENCE (M.S) - Data Science
+Indian Statistical Institute (ISI), Kolkata
+2017 - 2019 | First Class with Distinction
+
+BACHELOR OF TECHNOLOGY (B.Tech) - Computer Science
+NIT Trichy (National Institute of Technology)
+2013 - 2017 | CGPA: 8.7/10
+
+================================================================================
+CERTIFICATIONS
+================================================================================
+
+• AWS Certified Machine Learning - Specialty (2023)
+• TensorFlow Developer Certificate (2022)
+• Deep Learning Specialization - Coursera (2021)
+• Google Data Analytics Professional Certificate (2020)
+
+================================================================================
+PUBLICATIONS & RESEARCH
+================================================================================
+
+• "Efficient Transformer Models for Low-Resource NLP" - ACL Workshop 2023
+• "Hybrid Recommendation Systems: A Comparative Study" - RecSys 2022
+
+================================================================================
+PROJECTS
+================================================================================
+
+Customer Churn Prediction System
+• Built end-to-end ML pipeline predicting customer churn with 92% accuracy
+• Technologies: Python, XGBoost, FastAPI, Docker, AWS
+
+Conversational AI Chatbot
+• Developed RAG-based chatbot for customer support automation
+• Technologies: Langchain, OpenAI, Pinecone, FastAPI
+
+Image Classification API
+• Created production-ready image classification service
+• Technologies: PyTorch, FastAPI, Docker, Kubernetes
+
+================================================================================
+ACHIEVEMENTS
+================================================================================
+
+• Winner - Amazon ML Hackathon 2023
+• Top 5% - Kaggle Competition (Tabular Playground Series)
+• Published 2 research papers in peer-reviewed conferences
+
+================================================================================
+LANGUAGES
+================================================================================
+
+• English (Fluent)
+• Hindi (Native)
+• Marathi (Conversational)

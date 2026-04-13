@@ -1,0 +1,104 @@
+{
+  "sample_jobs": [
+    {
+      "title": "Senior Software Engineer",
+      "department": "Engineering",
+      "location": "San Francisco, CA",
+      "employment_type": "full-time",
+      "remote_policy": "hybrid",
+      "description": "We are looking for an experienced Senior Software Engineer to join our growing engineering team. You will be responsible for designing, developing, and maintaining scalable software solutions. The ideal candidate has strong problem-solving skills and experience with modern software development practices.",
+      "responsibilities": [
+        "Design and implement scalable backend services",
+        "Collaborate with cross-functional teams",
+        "Mentor junior engineers",
+        "Participate in code reviews",
+        "Write technical documentation"
+      ],
+      "required_skills": [
+        "Python",
+        "JavaScript",
+        "AWS",
+        "Docker",
+        "PostgreSQL",
+        "REST APIs",
+        "Git"
+      ],
+      "preferred_skills": [
+        "Kubernetes",
+        "GraphQL",
+        "Redis",
+        "Terraform",
+        "CI/CD"
+      ],
+      "min_experience_years": 5,
+      "required_education": "Bachelor's in Computer Science or related field",
+      "required_certifications": []
+    },
+    {
+      "title": "Data Scientist",
+      "department": "Data & Analytics",
+      "location": "New York, NY",
+      "employment_type": "full-time",
+      "remote_policy": "remote",
+      "description": "Join our Data Science team to develop machine learning models and derive insights from complex datasets. You will work closely with product and engineering teams to build data-driven solutions.",
+      "responsibilities": [
+        "Build and deploy machine learning models",
+        "Analyze large datasets to derive insights",
+        "Develop data pipelines",
+        "Present findings to stakeholders",
+        "Stay current with ML research"
+      ],
+      "required_skills": [
+        "Python",
+        "Machine Learning",
+        "SQL",
+        "Pandas",
+        "Scikit-learn",
+        "Statistics"
+      ],
+      "preferred_skills": [
+        "Deep Learning",
+        "PyTorch",
+        "TensorFlow",
+        "Spark",
+        "Airflow"
+      ],
+      "min_experience_years": 3,
+      "required_education": "Master's in Data Science, Statistics, or related field",
+      "required_certifications": []
+    },
+    {
+      "title": "Product Manager",
+      "department": "Product",
+      "location": "Austin, TX",
+      "employment_type": "full-time",
+      "remote_policy": "hybrid",
+      "description": "We are seeking a Product Manager to lead product strategy and roadmap for our core platform. You will work with engineering, design, and business teams to deliver products that delight customers.",
+      "responsibilities": [
+        "Define product vision and strategy",
+        "Prioritize features based on customer needs",
+        "Work with engineering on technical requirements",
+        "Analyze product metrics",
+        "Conduct user research"
+      ],
+      "required_skills": [
+        "Product Management",
+        "Agile",
+        "User Research",
+        "Data Analysis",
+        "Communication",
+        "Project Management"
+      ],
+      "preferred_skills": [
+        "SQL",
+        "A/B Testing",
+        "Wireframing",
+        "JIRA",
+        "Technical Background"
+      ],
+      "min_experience_years": 4,
+      "required_education": "Bachelor's degree",
+      "required_certifications": []
+    }
+  ]
+}

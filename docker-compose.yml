@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  # FastAPI Backend
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: hr-screening-api
+    ports:
+      - "8000:8000"
+    environment:
+      - USF_API_KEY=${USF_API_KEY:-ec040bd9-b594-44bc-a196-1da99949a514}
+      - USF_BASE_URL=${USF_BASE_URL:-https://api.us.inc/usf/v1/hiring}
+      - APP_HOST=0.0.0.0
+      - APP_PORT=8000
+      - DEBUG=false
+      - CHROMA_PERSIST_DIR=/app/data/chroma_db
+      - UPLOAD_DIR=/app/data/uploads
+      - MAX_FILE_SIZE_MB=10
+    volumes:
+      - hr_data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    networks:
+      - hr-network
+
+  # Streamlit Frontend
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.streamlit
+    container_name: hr-screening-frontend
+    ports:
+      - "8501:8501"
+    environment:
+      - API_BASE_URL=http://api:8000/api/v1
+    depends_on:
+      api:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - hr-network
+
+volumes:
+  hr_data:
+    driver: local
+
+networks:
+  hr-network:
+    driver: bridge
