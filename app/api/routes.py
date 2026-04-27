@@ -28,6 +28,10 @@ router = APIRouter()
 candidates_db = {}
 jobs_db = {}
 
+# Rate limiting for rankings
+active_rankings = 0
+MAX_CONCURRENT_RANKINGS = settings.max_concurrent_rankings
+
 
 # ==================== Health Check ====================
 
@@ -135,30 +139,43 @@ async def _process_single_resume(file: UploadFile):
 @router.post("/candidates/upload/bulk")
 async def upload_resumes_bulk(files: List[UploadFile] = File(...)):
     """
-    Upload multiple resume files at once IN PARALLEL.
+    Upload multiple resume files at once IN PARALLEL with batching.
+    Processes in batches of 10 to prevent API overload.
     """
-    # Process all files in parallel
-    tasks = [_process_single_resume(file) for file in files]
-    results_with_errors = await asyncio.gather(*tasks, return_exceptions=True)
+    BATCH_SIZE = settings.upload_batch_size
+    all_results = []
+    all_errors = []
     
-    results = []
-    errors = []
+    # Process files in batches
+    for i in range(0, len(files), BATCH_SIZE):
+        batch = files[i:i + BATCH_SIZE]
+        logger.info(f"Processing batch {i//BATCH_SIZE + 1}/{(len(files) + BATCH_SIZE - 1)//BATCH_SIZE} ({len(batch)} files)")
+        
+        # Process batch in parallel
+        tasks = [_process_single_resume(file) for file in batch]
+        results_with_errors = await asyncio.gather(*tasks, return_exceptions=True)
+        
+        for result_or_error in results_with_errors:
+            if isinstance(result_or_error, Exception):
+                all_errors.append({"file": "unknown", "error": str(result_or_error)})
+            else:
+                candidate_result, error = result_or_error
+                if candidate_result:
+                    all_results.append(candidate_result)
+                if error:
+                    all_errors.append(error)
+        
+        # Small delay between batches to prevent API rate limiting
+        if i + BATCH_SIZE < len(files):
+            await asyncio.sleep(0.5)
     
-    for result_or_error in results_with_errors:
-        if isinstance(result_or_error, Exception):
-            errors.append({"file": "unknown", "error": str(result_or_error)})
-        else:
-            candidate_result, error = result_or_error
-            if candidate_result:
-                results.append(candidate_result)
-            if error:
-                errors.append(error)
+    logger.info(f"Bulk upload complete: {len(all_results)} successful, {len(all_errors)} failed")
     
     return {
-        "uploaded": len(results),
-        "failed": len(errors),
-        "candidates": results,
-        "errors": errors
+        "uploaded": len(all_results),
+        "failed": len(all_errors),
+        "candidates": all_results,
+        "errors": all_errors
     }
 
 
@@ -427,6 +444,15 @@ async def get_rankings(
     min_score: float = Query(0.0, ge=0, le=100)
 ):
     """Get candidate rankings for a job (requires pipeline to have been run)."""
+    global active_rankings
+    
+    # Rate limiting check
+    if active_rankings >= MAX_CONCURRENT_RANKINGS:
+        raise HTTPException(
+            status_code=429,
+            detail=f"System is currently processing {active_rankings} ranking requests. Maximum concurrent rankings: {MAX_CONCURRENT_RANKINGS}. Please try again in 30 seconds."
+        )
+    
     job = jobs_db.get(job_id)
     if not job:
         raise HTTPException(status_code=404, detail="Job not found")
@@ -436,26 +462,35 @@ async def get_rankings(
     if not candidates:
         return {"rankings": [], "total": 0}
     
-    # Get match results
-    match_results = await matching_agent.batch_match(candidates, job)
+    # Increment active rankings counter
+    active_rankings += 1
+    logger.info(f"Starting ranking request. Active rankings: {active_rankings}/{MAX_CONCURRENT_RANKINGS}")
     
-    # Create rankings
-    candidates_dict = {c.id: c for c in candidates}
-    ranking_result = await ranking_agent.execute(match_results, candidates_dict, job)
-    
-    # Filter by min_score
-    filtered_rankings = [
-        r for r in ranking_result.rankings
-        if r.get("overall_score", 0) >= min_score
-    ][:top_k]
-    
-    return {
-        "job_id": job_id,
-        "job_title": job.title,
-        "total_candidates": len(candidates),
-        "rankings": filtered_rankings,
-        "summary": ranking_result.summary
-    }
+    try:
+        # Get match results
+        match_results = await matching_agent.batch_match(candidates, job)
+        
+        # Create rankings
+        candidates_dict = {c.id: c for c in candidates}
+        ranking_result = await ranking_agent.execute(match_results, candidates_dict, job)
+        
+        # Filter by min_score
+        filtered_rankings = [
+            r for r in ranking_result.rankings
+            if r.get("overall_score", 0) >= min_score
+        ][:top_k]
+        
+        return {
+            "job_id": job_id,
+            "job_title": job.title,
+            "total_candidates": len(candidates),
+            "rankings": filtered_rankings,
+            "summary": ranking_result.summary
+        }
+    finally:
+        # Always decrement counter, even if error occurs
+        active_rankings -= 1
+        logger.info(f"Completed ranking request. Active rankings: {active_rankings}/{MAX_CONCURRENT_RANKINGS}")
 
 
 @router.get("/report/{job_id}/{candidate_id}")

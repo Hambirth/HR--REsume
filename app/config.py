@@ -34,6 +34,11 @@ class Settings(BaseSettings):
     embed_model: str = "usf1-embed"
     rerank_model: str = "usf1-rerank"
     
+    # Performance Settings
+    api_timeout: int = int(os.getenv("API_TIMEOUT", "60"))  # seconds
+    max_concurrent_rankings: int = int(os.getenv("MAX_CONCURRENT_RANKINGS", "3"))
+    upload_batch_size: int = int(os.getenv("UPLOAD_BATCH_SIZE", "10"))
+    
     class Config:
         env_file = ".env"
         extra = "allow"

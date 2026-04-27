@@ -42,6 +42,31 @@ Resume Upload → Resume Parser → Router Agent → [Screening Agent / Matching
 
 ## 🚀 Quick Start
 
+### Option 1: Docker Deployment (Recommended) 🐳
+
+**Fastest way to get started!**
+
+```bash
+# 1. Ensure Docker Desktop is running
+
+# 2. Run deployment script (Windows)
+deploy.bat
+
+# Or manually:
+docker-compose up -d --build
+
+# 3. Access application
+# Frontend: http://localhost
+# Backend API: http://localhost:8000
+# API Docs: http://localhost:8000/docs
+```
+
+**See [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md) for detailed instructions.**
+
+---
+
+### Option 2: Manual Setup
+
 ### 1. Clone and Setup
 
 ```bash

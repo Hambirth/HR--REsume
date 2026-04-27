@@ -411,6 +411,12 @@ function MatchTab({ jobs }) {
       setSummary(res.data.summary || '')
     } catch (err) {
       console.error('Error getting rankings:', err)
+      // Handle rate limiting
+      if (err.response?.status === 429) {
+        alert('⚠️ System Busy\n\nThe system is currently processing other ranking requests (max 3 concurrent).\n\nPlease wait 30 seconds and try again.')
+      } else {
+        alert('Error ranking candidates. Please try again.')
+      }
     }
     setLoading(false)
   }
